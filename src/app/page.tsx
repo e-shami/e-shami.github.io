@@ -1,9 +1,21 @@
 import React from "react";
-import HomeTemp from "@/src/app/home_temp";
+import {
+    EducationSection,
+    ExperienceSection,
+    HeroSection,
+    ProjectsSection,
+    SkillsSection
+} from "@/src/components/sections";
 
 export default function Home() {
 
     return (
-        <HomeTemp/>
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+            <HeroSection/>
+            <ExperienceSection/>
+            <ProjectsSection/>
+            <EducationSection/>
+            <SkillsSection/>
+        </main>
     );
 }
