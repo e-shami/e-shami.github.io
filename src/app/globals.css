@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* Ensure smooth transitions when theme changes */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+/* Add smooth theme transitions */
+body {
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
