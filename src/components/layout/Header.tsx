@@ -24,12 +24,12 @@ const Header: React.FC = () => {
     return (
         <>
             <motion.header
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+                className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
                     scrollY > 50 ? 'bg-white/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'
                 }`}
                 initial={{y: -100}}
                 animate={{y: 0}}
-                transition={{type: 'spring', stiffness: 100}}
+                transition={{type: 'spring' as const, stiffness: 100}}
             >
                 <div className={"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"}>
                     <div className={"flex justify-between items-center h-16 md:h-20"}>
@@ -68,9 +68,8 @@ const Header: React.FC = () => {
 
                         {/* Mobile Menu Button */}
                         <motion.button
-                            className={"md:hidden p-2 rounded-lg hover:bg-gray-100"}
+                            className="md:hidden"
                             onClick={() => setMobileMenuOpen(true)}
-                            whileTap={{scale: 0.9}}
                         >
                             <Menu className="text-gray-800" size={24}/>
                         </motion.button>

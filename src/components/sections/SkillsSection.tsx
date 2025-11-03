@@ -16,6 +16,9 @@ const SkillsSection: React.FC = () => {
             whileInView="visible"
             viewport={{once: true, margin: "-100px"}}
             variants={containerVariants}
+            style={{
+                scrollMarginTop: '56px',
+            }}
         >
             <SectionHeader title="Skills & Technologies" icon={Terminal}/>
 

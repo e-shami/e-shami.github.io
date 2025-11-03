@@ -16,6 +16,9 @@ const HeroSection: React.FC = () => {
             initial="hidden"
             animate="visible"
             variants={containerVariants}
+            style={{
+                scrollMarginTop: '56px',
+            }}
         >
             <div className="w-full">
                 <div className="text-center mb-12">
