@@ -65,14 +65,16 @@ export const EXPERIENCES: Experience[] = [
 
 export const PROJECTS: Project[] = [
     {
-        title: 'Butterfly Effect Universe',
-        year: '2023',
-        role: 'Back-end Developer',
-        description: 'Worked as back-end developer using Node.js with TypeScript. Conducted thorough feasibility analysis and reported feedback to design team for risk analysis and cost estimations.',
-        link: 'butterflyeffectuniverse.org',
-        tech: ['Node.js', 'TypeScript', 'Backend API'],
-        color: 'from-blue-500 to-cyan-500'
+        title: "Tune-up Golfing",
+        year: '2024',
+        role: 'Mobile Application Developer',
+        badge: 'SageTeck',
+        description: "Developed mobile application using React Native with Expo. Implemented IoT device functionality for real-time water storage monitoring. Added user interfaces, Uber-like tanker ordering system, in-app chatting with WebSockets, and customer support. Developed admin panel using React.",
+        tech: ['React', 'React Native', 'Expo', 'Push Notifications', 'Video Player', 'Screen Recording', 'File Sharing', 'Gallery Access', 'Camera Access', 'Zustand', 'React-Native-MMKV', 'WebSockets'],
+        link: 'rb.gy/qilbr4',
+        color: 'from-orange-400 via-rose-400 to-amber-400'
     },
+
     {
         title: 'Tankerwala',
         year: '2023',
@@ -81,8 +83,17 @@ export const PROJECTS: Project[] = [
         description: 'Developed mobile application using React Native with Expo. Implemented IoT device functionality for real-time water storage monitoring. Added user interfaces, Uber-like tanker ordering system, in-app chatting with WebSockets, and customer support. Developed admin panel using React.',
         tech: ['React Native', 'Expo', 'IoT', 'WebSockets', 'React'],
         link: 'rb.gy/qilbr4',
-        color: 'from-purple-500 to-pink-500'
-    }
+        color: 'from-violet-400 via-pink-400 to-rose-400'
+    },
+    {
+        title: 'Butterfly Effect Universe',
+        year: '2023',
+        role: 'Back-end Developer',
+        description: 'Worked as back-end developer using Node.js with TypeScript. Conducted thorough feasibility analysis and reported feedback to design team for risk analysis and cost estimations.',
+        link: 'butterfly-effect-universe.vercel.app/',
+        tech: ['Node.js', 'TypeScript', 'Backend API'],
+        color: 'from-emerald-300 via-teal-400 to-slate-500'
+    },
 ];
 
 export const SKILLS: SkillCategory[] = [

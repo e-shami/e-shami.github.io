@@ -8,9 +8,14 @@ import {useActiveSection} from '@/src/hooks/useActiveSection';
 import {useScrollPosition} from '@/src/hooks/useScrollPosition';
 import {NAV_ITEMS} from '@/src/lib/constants';
 import React from 'react';
+import {useTailwindColorScheme} from "@/src/hooks";
+import ThemeToggle from "@/src/components/ThemeToggle";
+import {useColorScheme} from "@mui/material";
 
 const Header: React.FC = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const {mode} = useColorScheme();
+    const lightMode = mode === 'light';
     const activeSection = useActiveSection();
     const scrollY = useScrollPosition();
 
@@ -21,11 +26,13 @@ const Header: React.FC = () => {
         }
     };
 
+    const navColor = scrollY > 50 ? `${ lightMode? 'bg-white/20' : 'bg-black/40'} backdrop-blur-lg shadow-lg` : 'bg-transparent';
+
     return (
         <>
             <motion.header
                 className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
-                    scrollY > 50 ? 'bg-white/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'
+                    navColor
                 }`}
                 initial={{y: -100}}
                 animate={{y: 0}}
@@ -55,7 +62,7 @@ const Header: React.FC = () => {
                                     className={`px-4 py-2 rounded-lg font-medium transition-all flex items-center gap-2 ${
                                         activeSection === item.id
                                             ? 'bg-blue-600 text-white shadow-lg'
-                                            : 'text-gray-700 hover:bg-gray-100'
+                                            : `${lightMode ?  'text-gray-700 hover:bg-white/85' : 'text-slate-200 hover:bg-black/15'}`
                                     }`}
                                     whileHover={{scale: 1.05}}
                                     whileTap={{scale: 0.95}}
@@ -64,6 +71,7 @@ const Header: React.FC = () => {
                                     <span className="hidden lg:inline">{item.label}</span>
                                 </motion.button>
                             ))}
+                            <ThemeToggle />
                         </nav>
 
                         {/* Mobile Menu Button */}
@@ -71,7 +79,7 @@ const Header: React.FC = () => {
                             className="md:hidden"
                             onClick={() => setMobileMenuOpen(true)}
                         >
-                            <Menu className="text-gray-800" size={24}/>
+                            <Menu className={lightMode ? 'text-gray-700' : 'text-slate-200'} size={24}/>
                         </motion.button>
                     </div>
                 </div>

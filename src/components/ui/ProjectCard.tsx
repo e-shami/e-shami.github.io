@@ -14,7 +14,7 @@ interface ProjectCardProps {
             <div
                 className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all p-6 md:p-8 border border-gray-100 h-full flex flex-col">
                 {/* Header with gradient */}
-                <div className={`bg-gradient-to-r ${project.color} rounded-xl p-6 mb-6 text-white`}>
+                <div className={`bg-gradient-to-r ${project.color} rounded-xl p-6 mb-6 text-white antialiased`}>
                     <div className="flex justify-between items-start mb-2">
                         <h3 className="text-xl md:text-2xl font-bold">{project.title}</h3>
                         <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
