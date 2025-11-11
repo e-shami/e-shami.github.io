@@ -15,7 +15,11 @@ const OpenSourceSection: React.FC = () => {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{once: true, margin: "-100px"}}
-                        variants={containerVariants}>
+                        variants={containerVariants}
+                        style={{
+                            scrollMarginTop: '56px',
+                        }}
+        >
             <SectionHeader title={"Open Source Contribution"} icon={GitFork}/>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {OPEN_SOURCE.map((project, index) => (

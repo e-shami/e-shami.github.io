@@ -1,16 +1,7 @@
 "use client";
 
-import {
-    IconButton,
-    Tooltip,
-    Menu,
-    MenuItem,
-    ListItemIcon,
-    ListItemText,
-} from "@mui/material";
+import {IconButton, ListItemIcon, ListItemText, Menu, MenuItem, Tooltip,} from "@mui/material";
 import {useColorScheme} from "@mui/material/styles";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
 import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightness";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
@@ -45,6 +36,15 @@ export default function ThemeToggle() {
         handleClose();
     };
 
+    const darkMode = mode === "dark" || systemMode === "dark";
+
+    const getSystemModeName = () => {
+        if (systemMode){
+            const systemModeFirstLetter = systemMode?.split("")[0].toUpperCase();
+            const systemModeRest = systemMode?.slice(1);
+            return systemModeFirstLetter + systemModeRest;
+        }
+    }
     // Determine which icon to show
     const getIcon = () => {
         if (mode === "system") {
@@ -59,11 +59,11 @@ export default function ThemeToggle() {
                      slotProps={{
                          tooltip: {
                              sx: {
-                                 bgcolor: mode === 'dark' ? 'rgb(30 41 59)' : 'white',
-                                 color: mode === 'dark' ? '#e2e8f0' : '#1e293b',
+                                 bgcolor: darkMode  ? 'rgb(30 41 59)' : 'white',
+                                 color: darkMode ? '#e2e8f0' : '#1e293b',
                                  boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
                                  '& .MuiTooltip-arrow': {
-                                     color: mode === 'dark' ? 'rgb(30 41 59)' : 'white',
+                                     color: darkMode ? 'rgb(30 41 59)' : 'white',
                                  },
                              },
                          },
@@ -88,19 +88,19 @@ export default function ThemeToggle() {
                 onClose={handleClose}
                 sx={{
                     '& .MuiPaper-root': {
-                        backgroundColor: mode === 'dark' ? '#1e293b' : '#ffffff', // slate-800 for dark, white for light
-                        color: mode === 'dark' ? '#e2e8f0' : '#1e293b', // slate-200 for dark, slate-800 for light
+                        backgroundColor: darkMode ? '#1e293b' : '#ffffff', // slate-800 for dark, white for light
+                        color: darkMode ? '#e2e8f0' : '#1e293b', // slate-200 for dark, slate-800 for light
                         boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
                     },
                     '& .MuiMenuItem-root': {
                         padding: '8px 16px',
                         '&:hover': {
-                            backgroundColor: mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.04)',
+                            backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.04)',
                         },
                         '&.Mui-selected': {
-                            backgroundColor: mode === 'dark' ? 'rgba(59, 130, 246, 0.2)' : 'rgba(59, 130, 246, 0.15)',
+                            backgroundColor: darkMode ? 'rgba(59, 130, 246, 0.2)' : 'rgba(59, 130, 246, 0.15)',
                             '&:hover': {
-                                backgroundColor: mode === 'dark' ? 'rgba(59, 130, 246, 0.3)' : 'rgba(59, 130, 246, 0.15)',
+                                backgroundColor: darkMode ? 'rgba(59, 130, 246, 0.3)' : 'rgba(59, 130, 246, 0.15)',
                             },
                         },
                     },
@@ -133,31 +133,9 @@ export default function ThemeToggle() {
                     <ListItemIcon>
                         <SettingsBrightnessIcon fontSize="small"/>
                     </ListItemIcon>
-                    <ListItemText>System {systemMode && `(${systemMode})`}</ListItemText>
+                    <ListItemText>System {systemMode && `(${getSystemModeName()})`}</ListItemText>
                 </MenuItem>
             </Menu>
         </>
-    );
-}
-
-/**
- * Simple version - just toggles between light and dark
- */
-export function SimpleThemeToggle() {
-    const {mode, setMode} = useColorScheme();
-
-    if (!mode) {
-        return null;
-    }
-
-    return (
-        <IconButton
-            onClick={() => {
-                setMode(mode === "light" ? "dark" : "light");
-            }}
-            color="inherit"
-        >
-            {mode === "dark" ? <Brightness7Icon/> : <Brightness4Icon/>}
-        </IconButton>
     );
 }
