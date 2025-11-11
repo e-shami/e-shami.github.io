@@ -6,6 +6,7 @@ import {NAV_ITEMS} from '@/src/lib/constants';
 import React from 'react';
 import {useTailwindColorScheme} from "@/src/hooks";
 import {useColorScheme} from "@mui/material";
+import ThemeToggle from "@/src/components/ThemeToggle";
 
 interface MobileMenuProps {
     isOpen: boolean;
@@ -21,8 +22,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                                                    onNavigate
                                                }) => {
 
-    const {mode} = useColorScheme();
-    const lightMode = mode === 'light';
+    const {mode, systemMode} = useColorScheme();
+    const lightMode = mode === 'light' || systemMode === 'light';
     const handleNavigate = (sectionId: string) => {
         onNavigate(sectionId);
         onClose();
@@ -63,7 +64,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                                         className={`w-full text-left px-4 py-3 rounded-lg font-medium transition-all flex items-center gap-3 ${
                                             activeSection === item.id
                                                 ? 'bg-blue-600 text-white'
-                                                :`${lightMode ?  'text-gray-700' : 'text-slate-400'}`
+                                                : `${lightMode ? 'text-gray-700' : 'text-slate-400'}`
                                         }`}
                                         initial={{opacity: 0, x: 50}}
                                         animate={{opacity: 1, x: 0}}
@@ -75,7 +76,13 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                                 ))}
 
                             </nav>
+                            <div
+                                className={`w-full text-left mt-6 py-3 font-medium transition-all flex items-center justify-between ${lightMode ? 'text-gray-700' : 'text-slate-300'} gap-3`}>
+                                <p> Change theme</p>
+                                <ThemeToggle/>
+                            </div>
                         </div>
+
                     </motion.div>
                 </div>
             )}

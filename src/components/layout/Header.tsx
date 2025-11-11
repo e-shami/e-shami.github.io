@@ -14,8 +14,8 @@ import {useColorScheme} from "@mui/material";
 
 const Header: React.FC = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const {mode} = useColorScheme();
-    const lightMode = mode === 'light';
+    const {mode, systemMode} = useColorScheme();
+    const lightMode = mode === 'light' || systemMode === 'light';
     const activeSection = useActiveSection();
     const scrollY = useScrollPosition();
 

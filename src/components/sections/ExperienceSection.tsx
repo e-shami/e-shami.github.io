@@ -8,6 +8,8 @@ import {containerVariants, slideInFromLeft, slideInFromRight} from "@/src/lib/an
 import {SectionHeader, ExperienceCard} from '@/src/components/ui'
 
 const ExperienceSection: React.FC = () => {
+
+
     return (
         <motion.section
             id="experience"

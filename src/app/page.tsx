@@ -6,6 +6,7 @@ import {
     ProjectsSection,
     SkillsSection
 } from "@/src/components/sections";
+import OpenSourceSection from "@/src/components/sections/OpenSource";
 
 export default function Home() {
 
@@ -16,6 +17,7 @@ export default function Home() {
             <ProjectsSection/>
             <EducationSection/>
             <SkillsSection/>
+            <OpenSourceSection/>
         </main>
     );
 }

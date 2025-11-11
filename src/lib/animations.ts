@@ -20,7 +20,7 @@ export const fadeInUp = {
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.6 }
+        transition: { type: 'tween' as const, stiffness: 200, duration: 0.6 }
     }
 };
 

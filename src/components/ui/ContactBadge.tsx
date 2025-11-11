@@ -5,6 +5,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeInUp } from '@/src/lib/animations';
 import {useColorScheme} from "@mui/material";
+import {useTailwindColorScheme} from "@/src/hooks";
 
 interface ContactBadgeProps {
     icon: LucideIcon;
@@ -13,21 +14,15 @@ interface ContactBadgeProps {
 }
 
 const ContactBadge: React.FC<ContactBadgeProps> = ({ icon: Icon, text, href }) => {
-    const {mode} = useColorScheme();
-    const isLight = mode === "light";
-    const colors = {
-        icon: isLight ? "text-blue-600" : "text-blue-400",
-        text: isLight ? "text-gray-700" : "text-gray-100",
-        badge: isLight ? "bg-white" : "bg-slate-800",
-    }
+    const scheme = useTailwindColorScheme();
     const content = (
         <>
-            <Icon size={18} className={colors.icon} />
-            <span className={`text-sm md:text-base ${colors.text}`}>{text}</span>
+            <Icon size={18} className={scheme.importantTextColor} />
+            <span className={`text-sm md:text-base ${scheme.textPrimaryColor}`}>{text}</span>
         </>
     );
 
-    const className = `flex items-center gap-2 px-4 py-2 ${colors.badge} rounded-full shadow-md hover:shadow-lg transition-shadow`;
+    const className = `flex items-center gap-2 px-4 py-2 ${scheme.cardColor} border rounded-full shadow-md hover:shadow-lg transition-shadow`;
 
     if (href) {
         return (

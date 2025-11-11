@@ -23,7 +23,6 @@ export interface Project {
     description: string;
     tech: string[];
     link?: string;
-    color: string;
 }
 
 export interface SkillCategory {

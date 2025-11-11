@@ -3,13 +3,19 @@ import React from 'react';
 import {motion} from 'framer-motion';
 import {Github, Linkedin, Mail} from 'lucide-react';
 import {CONTACT_INFO} from '@/src/lib/constants';
+import {useTailwindColorScheme} from "@/src/hooks";
+import {useColorScheme} from "@mui/material";
 
 const Footer: React.FC = () => {
+
+    const scheme = useTailwindColorScheme();
+    const {mode, systemMode} = useColorScheme();
+    const isLight = mode === 'light' || systemMode === 'light';
     return (
         <motion.footer
             initial={{opacity: 0}}
             whileInView={{opacity: 1}}
-            className="py-12 border-t border-gray-200"
+            className={`py-12 border-t ${isLight ? "border-gray-200" : "border-slate-800"}`}
         >
             <div className="text-center">
                 <div className="flex justify-center gap-4 mb-6">
@@ -45,10 +51,10 @@ const Footer: React.FC = () => {
                         <Mail size={20}/>
                     </motion.a>
                 </div>
-                <p className="text-gray-600 mb-2 text-sm md:text-base">
+                <p className={` ${isLight ? "text-gray-600" : "text-slate-400"} mb-2 text-sm md:text-base`}>
                     © 2024 Ehtisham Rehmat. All rights reserved.
                 </p>
-                <p className="text-gray-500 text-xs md:text-sm">
+                <p className={` ${isLight ? "text-gray-500" : "text-slate-500"} text-xs md:text-sm`}>
                     Built with Next.js, TypeScript, Tailwind CSS & Framer Motion
                 </p>
             </div>

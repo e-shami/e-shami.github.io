@@ -1,27 +1,29 @@
 import {Experience, Project, SkillCategory, ContactInfo, NavItem} from './types';
-import {Smartphone, Server, Globe, Database, Zap, Terminal, Code, Briefcase, GraduationCap} from 'lucide-react';
+import {Smartphone, Server, Globe, Database, Zap, Terminal, Code, Briefcase, GraduationCap, GitFork} from 'lucide-react';
 import React from 'react';
 
 const CodeIcon = React.createElement(Code, {size: 20});
+const GitForkIcon = React.createElement(GitFork, {size: 20});
 const BriefcaseIcon = React.createElement(Briefcase, {size: 20});
 const SmartphoneIcon = React.createElement(Smartphone, {size: 20});
 const GraduationCapIcon = React.createElement(GraduationCap, {size: 20});
-const TerminalIcon = React.createElement(Terminal, {size: 20, });
-const SmartPhoneIconLarge = React.createElement(Smartphone, {size: 24, className: 'text-blue-600'});
-const ServerIcon = React.createElement(Server, {size: 24, className: 'text-green-600'});
-const GlobeIcon = React.createElement(Globe, {size: 24, className: 'text-purple-600'});
-const DatabaseIcon = React.createElement(Database, {size: 24, className: 'text-orange-600'});
-const ZapIcon = React.createElement(Zap, {size: 24, className: 'text-yellow-600'});
-const TerminalIconLarge = React.createElement(Terminal, {size: 24, className: 'text-red-600'});
-const CodeIconLarge = React.createElement(Code, {size: 24, className: 'text-indigo-600'});
-const TerminalIconLargeInverted = React.createElement(Terminal, {size: 24, className: 'text-gray-600'});
+const TerminalIcon = React.createElement(Terminal, {size: 20,});
+const SmartPhoneIconLarge = React.createElement(Smartphone, {size: 24, className: 'text-blue-500'});
+const ServerIcon = React.createElement(Server, {size: 24, className: 'text-green-500'});
+const GlobeIcon = React.createElement(Globe, {size: 24, className: 'text-purple-500'});
+const DatabaseIcon = React.createElement(Database, {size: 24, className: 'text-orange-500'});
+const ZapIcon = React.createElement(Zap, {size: 24, className: 'text-yellow-500'});
+const TerminalIconLarge = React.createElement(Terminal, {size: 24, className: 'text-red-500'});
+const CodeIconLarge = React.createElement(Code, {size: 24, className: 'text-teal-500'});
+const TerminalIconLargeInverted = React.createElement(Terminal, {size: 24, className: 'text-pink-500'});
 
-export const NAV_ITEMS: NavItem[] =  [
+export const NAV_ITEMS: NavItem[] = [
     {id: 'home', label: 'Home', icon: CodeIcon},
     {id: 'experience', label: 'Experience', icon: BriefcaseIcon},
     {id: 'projects', label: 'Projects', icon: SmartphoneIcon},
-    {id: 'education', label: 'Education', icon:GraduationCapIcon},
-    {id: 'skills', label: 'Skills', icon: TerminalIcon}
+    {id: 'education', label: 'Education', icon: GraduationCapIcon},
+    {id: 'skills', label: 'Skills', icon: TerminalIcon},
+    {id: 'open-source', label: 'Contributions', icon: GitForkIcon}
 ];
 export const CONTACT_INFO: ContactInfo = {
     email: 'im_shami@icloud.com',
@@ -49,7 +51,7 @@ export const EXPERIENCES: Experience[] = [
         title: 'React Native Developer',
         company: 'Fiverr',
         period: '2022 - Present',
-        current: true,
+        current: false,
         type: 'Freelancing',
         achievements: [
             'Developed cross-platform mobile apps with React Native, Expo, JavaScript/TypeScript',
@@ -69,10 +71,9 @@ export const PROJECTS: Project[] = [
         year: '2024',
         role: 'Mobile Application Developer',
         badge: 'SageTeck',
-        description: "Developed mobile application using React Native with Expo. Implemented IoT device functionality for real-time water storage monitoring. Added user interfaces, Uber-like tanker ordering system, in-app chatting with WebSockets, and customer support. Developed admin panel using React.",
-        tech: ['React', 'React Native', 'Expo', 'Push Notifications', 'Video Player', 'Screen Recording', 'File Sharing', 'Gallery Access', 'Camera Access', 'Zustand', 'React-Native-MMKV', 'WebSockets'],
+        description: "Developed a cross-platform mobile app for golf enthusiasts using React Native and Expo. Designed for learners and instructors, the app enables booking and managing online or in-person lessons, with support for paid packages. Implemented features like live video annotation, in-app chat, social posting with likes and comments, and slot booking for individuals or groups.",
+        tech: ['React', 'React Native', 'Expo', 'EAS', 'Push Notifications', 'Video Player', 'Screen Recording', 'File Sharing', 'Gallery Access', 'Camera Access', 'Zustand', 'React-Native-MMKV', 'WebSockets'],
         link: 'rb.gy/qilbr4',
-        color: 'from-orange-400 via-rose-400 to-amber-400'
     },
 
     {
@@ -81,9 +82,8 @@ export const PROJECTS: Project[] = [
         role: 'Full-stack Developer',
         badge: 'FYP',
         description: 'Developed mobile application using React Native with Expo. Implemented IoT device functionality for real-time water storage monitoring. Added user interfaces, Uber-like tanker ordering system, in-app chatting with WebSockets, and customer support. Developed admin panel using React.',
-        tech: ['React Native', 'Expo', 'IoT', 'WebSockets', 'React'],
-        link: 'rb.gy/qilbr4',
-        color: 'from-violet-400 via-pink-400 to-rose-400'
+        tech: ['React Native', 'Expo', 'Google Maps API', 'IoT', 'WebSockets', 'React', 'Node.js', 'Django', 'RESTful APIs', 'Data Structures', 'Algorithms', 'Arduino', 'UI/UX Design', 'SQLite', 'Git', 'GitHub', 'Jira', 'Cypress', 'Automated Testing'],
+        link: 'github.com/e-shami/FYP',
     },
     {
         title: 'Butterfly Effect Universe',
@@ -92,7 +92,6 @@ export const PROJECTS: Project[] = [
         description: 'Worked as back-end developer using Node.js with TypeScript. Conducted thorough feasibility analysis and reported feedback to design team for risk analysis and cost estimations.',
         link: 'butterfly-effect-universe.vercel.app/',
         tech: ['Node.js', 'TypeScript', 'Backend API'],
-        color: 'from-emerald-300 via-teal-400 to-slate-500'
     },
 ];
 
@@ -140,10 +139,26 @@ export const SKILLS: SkillCategory[] = [
 ];
 
 export const COURSES = [
-    'Data Structures and Algorithms',
-    'Web Technologies',
     'Mobile Application Development',
+    'Web Technologies',
     'Operating Systems',
+    'Software Testing',
+    'Database Management',
     'DevOps',
-    'Software Testing'
+    'Artificial Intelligence',
+    'Software Requirement Analysis',
+    'Software Design And Architecture',
+    'Data Structures and Algorithms',
 ];
+
+export const OPEN_SOURCE: Project[] = [
+    {
+        title: 'expo-screen-recorder',
+        year: '2024',
+        role: 'Contributor',
+        badge: 'GitHub',
+        description: 'Contributed to open-source by fixing bugs in expo-screen-recorder package',
+        tech: ['Expo Modules', "Kotlin", "HB Recorder", 'Swift', 'ReplayKit', 'npm', 'GitHub', 'Git'],
+        link: 'www.npmjs.com/package/expo-screen-recorder',
+    }
+]

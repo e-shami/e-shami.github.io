@@ -113,7 +113,7 @@ export default function ThemeRegistry({
     return (
         <ThemeProvider
             theme={theme}
-            defaultMode="system" // Start with system preference
+            defaultMode="dark" // Start with system preference
             modeStorageKey="mui-mode" // LocalStorage key for persisting mode
         >
             <CssBaseline enableColorScheme/>

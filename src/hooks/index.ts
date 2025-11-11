@@ -1,6 +1,6 @@
-import useIsMobile from "./useIsMobile";
-import { useTheme, useColorScheme } from "@mui/material";
+
+import { useTheme } from "@mui/material";
 import useTailwindColorScheme from "./useTailwindColorScheme";
 
 
-export { useIsMobile, useTheme, useTailwindColorScheme };
+export {useTheme, useTailwindColorScheme };

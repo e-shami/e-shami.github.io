@@ -8,16 +8,15 @@ import {containerVariants, itemVariants, scaleIn, slideInFromRight} from '@/src/
 import Image from "next/image";
 import React from "react";
 import {useColorScheme} from "@mui/material";
+import {useTailwindColorScheme} from "@/src/hooks";
 
 const HeroSection: React.FC = () => {
-    const {mode} = useColorScheme();
-    const isLight = mode === "light";
-    const colors  = {
+    const {mode, systemMode} = useColorScheme();
+    const scheme = useTailwindColorScheme();
+    const isLight = mode === 'light' || systemMode === 'light';
+    const colors = {
         avatar: isLight ? "from-blue-600 via-purple-600 to-pink-600" : "from-blue-500 via-purple-500 to-pink-500",
-        name: isLight ? "text-gray-800" : "text-gray-200",
-        title: isLight ? "text-blue-600" : "text-blue-400",
         download: isLight ? "from-blue-600 to-purple-600" : "from-blue-500 to-purple-500",
-        summaryBg: isLight ? "bg-white border-gray-100" : "bg-slate-800 border-slate-700 shadow-gray-800",
     }
     return (
         <motion.section
@@ -39,7 +38,8 @@ const HeroSection: React.FC = () => {
                     >
                         <div
                             className={`absolute inset-0 bg-gradient-to-br ${colors.avatar} rounded-full animate-pulse`}/>
-                        <div className="absolute inset-1.25 bg-transparent rounded-full flex items-center justify-center">
+                        <div
+                            className="absolute inset-1.25 bg-transparent rounded-full flex items-center justify-center">
                             <Image
                                 src={"https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_original/v1/attachments/profile/photo/0739dd10303f2fd968bf7b92e5a4ea07-1682693275142/f07ca94b-1fc9-4302-b4f1-3004f7eb856a.png"}
                                 alt="avatar"
@@ -52,10 +52,10 @@ const HeroSection: React.FC = () => {
 
                     {/* Name and Title */}
                     <motion.div variants={itemVariants}>
-                        <h1 className={`text-4xl md:text-6xl font-bold ${colors.name} mb-3`}>
+                        <h1 className={`text-4xl md:text-6xl font-bold ${scheme.titleColor} mb-3`}>
                             Ehtisham Rehmat
                         </h1>
-                        <p className={`text-xl md:text-2xl ${colors.title} font-semibold mb-6`}>
+                        <p className={`text-xl md:text-2xl ${scheme.importantTextColor} font-semibold mb-6`}>
                             React Native Developer
                         </p>
                     </motion.div>
@@ -93,14 +93,15 @@ const HeroSection: React.FC = () => {
 
                 {/* Summary Card */}
                 <motion.div variants={slideInFromRight}>
-                    <div className={` ${colors.summaryBg} rounded-2xl shadow-xl p-6 md:p-8 border`}>
-                        <h2 className={`text-2xl md:text-3xl font-bold ${colors.name}  mb-4 flex items-center gap-3`}>
-                            <div className={`w-10 h-10 ${isLight ? "bg-blue-100" : "bg-blue-900"}  rounded-lg flex items-center justify-center`}>
+                    <div className={`card ${scheme.cardColor}`}>
+                        <h2 className={`text-2xl md:text-3xl font-bold ${scheme.titleColor}  mb-4 flex items-center gap-3`}>
+                            <div
+                                className={`w-10 h-10 ${isLight ? "bg-blue-100" : "bg-blue-900"}  rounded-lg flex items-center justify-center`}>
                                 <Award className={isLight ? "text-blue-600" : "text-blue-100"} size={24}/>
                             </div>
                             Professional Summary
                         </h2>
-                        <p className={`${isLight ? 'text-gray-700' : 'text-gray-300'} leading-relaxed text-base md:text-lg`}>
+                        <p className={`${scheme.textPrimaryColor} leading-relaxed text-base md:text-lg`}>
                             Skilled React Native Developer with 2 years of experience building and deploying
                             cross-platform mobile apps using React Native and Expo. Possess a strong understanding of
                             JavaScript and TypeScript, and mobile development concepts. Adept at creating reusable UI
