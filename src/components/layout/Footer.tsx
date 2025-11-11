@@ -3,7 +3,6 @@ import React from 'react';
 import {motion} from 'framer-motion';
 import {Github, Linkedin, Mail} from 'lucide-react';
 import {CONTACT_INFO} from '@/src/lib/constants';
-import {useTailwindColorScheme} from "@/src/hooks";
 import {useColorScheme} from "@mui/material";
 
 const Footer: React.FC = () => {

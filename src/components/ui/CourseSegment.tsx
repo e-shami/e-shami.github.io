@@ -1,7 +1,6 @@
 import {motion} from "framer-motion";
 import {ChevronRight} from "lucide-react";
 import {useTailwindColorScheme} from "@/src/hooks";
-import {useColorScheme} from "@mui/material";
 import React from "react";
 
 interface CourseSegmentProps {
@@ -10,8 +9,6 @@ interface CourseSegmentProps {
 
 const CourseSegment: React.FC<CourseSegmentProps> = ({course}) => {
     const scheme = useTailwindColorScheme();
-    const {mode} = useColorScheme();
-    const isLight = mode === "light";
     return (
         <motion.div
             whileHover={{y: -2}}
