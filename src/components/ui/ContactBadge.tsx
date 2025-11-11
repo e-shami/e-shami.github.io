@@ -4,7 +4,6 @@ import { LucideIcon } from 'lucide-react'
 import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeInUp } from '@/src/lib/animations';
-import {useColorScheme} from "@mui/material";
 import {useTailwindColorScheme} from "@/src/hooks";
 
 interface ContactBadgeProps {

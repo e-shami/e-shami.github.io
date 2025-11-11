@@ -8,7 +8,6 @@ import {useActiveSection} from '@/src/hooks/useActiveSection';
 import {useScrollPosition} from '@/src/hooks/useScrollPosition';
 import {NAV_ITEMS} from '@/src/lib/constants';
 import React from 'react';
-import {useTailwindColorScheme} from "@/src/hooks";
 import ThemeToggle from "@/src/components/ThemeToggle";
 import {useColorScheme} from "@mui/material";
 

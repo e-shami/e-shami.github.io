@@ -4,7 +4,6 @@ import {motion, AnimatePresence} from 'framer-motion';
 import {X} from 'lucide-react';
 import {NAV_ITEMS} from '@/src/lib/constants';
 import React from 'react';
-import {useTailwindColorScheme} from "@/src/hooks";
 import {useColorScheme} from "@mui/material";
 import ThemeToggle from "@/src/components/ThemeToggle";
 

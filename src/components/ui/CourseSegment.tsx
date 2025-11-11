@@ -1,6 +1,5 @@
 import {motion} from "framer-motion";
 import {ChevronRight} from "lucide-react";
-import {fadeInUp} from "@/src/lib/animations";
 import {useTailwindColorScheme} from "@/src/hooks";
 import {useColorScheme} from "@mui/material";
 import React from "react";
@@ -13,7 +12,6 @@ const CourseSegment: React.FC<CourseSegmentProps> = ({course}) => {
     const scheme = useTailwindColorScheme();
     const {mode} = useColorScheme();
     const isLight = mode === "light";
-    const hoverBgColor = isLight ? "bg-gray-100" : "bg-pink-900";
     return (
         <motion.div
             whileHover={{y: -2}}

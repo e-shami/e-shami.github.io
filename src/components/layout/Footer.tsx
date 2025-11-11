@@ -8,7 +8,6 @@ import {useColorScheme} from "@mui/material";
 
 const Footer: React.FC = () => {
 
-    const scheme = useTailwindColorScheme();
     const {mode, systemMode} = useColorScheme();
     const isLight = mode === 'light' || systemMode === 'light';
     return (

@@ -2,10 +2,10 @@
 
 import React from 'react';
 import {motion} from 'framer-motion';
-import {GraduationCap, ChevronRight} from 'lucide-react';
+import {GraduationCap} from 'lucide-react';
 import {CourseSegment, SectionHeader} from '@/src/components/ui';
 import {COURSES} from '@/src/lib/constants';
-import {containerVariants, fadeInUp, scaleIn, slideInFromLeft} from '@/src/lib/animations';
+import {containerVariants, fadeInUp, slideInFromLeft} from '@/src/lib/animations';
 import {useTailwindColorScheme} from "@/src/hooks";
 import {useColorScheme} from "@mui/material";
 
