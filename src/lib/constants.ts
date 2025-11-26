@@ -75,7 +75,15 @@ export const PROJECTS: Project[] = [
         tech: ['React', 'React Native', 'Expo', 'EAS', 'Push Notifications', 'Video Player', 'Screen Recording', 'File Sharing', 'Gallery Access', 'Camera Access', 'Zustand', 'React-Native-MMKV', 'WebSockets'],
         link: 'rb.gy/qilbr4',
     },
-
+    {
+        title: "Vendor-verse",
+        year: '2024',
+        role: 'Full-stack Developer (MERN)',
+        badge: 'Freelance',
+        description: "Developed a full-stack e-commerce platform using React, Node.js, and MongoDB. Implemented features like user authentication, product catalog, shopping cart, and payment processing (integration with Stripe). Contains marketplace for potential buyers, shop-management dashboard for sellers, and admin panel for managing users and products.",
+        tech: ['React', 'Node.js', 'MongoDB', 'Stripe', 'User Authentication', 'Tailwind', 'Redux', 'Material UI', 'Webpack', 'Nodemailer', 'Cloudinary', 'WebSockets', 'Gmail Api (SMTP)', 'Git', 'GitHub', 'Jira', 'Cypress', 'Automated Testing', 'Vercel', 'Render'],
+        link: 'vendor-verse-phi.vercel.app'
+    },
     {
         title: 'Tankerwala',
         year: '2023',
