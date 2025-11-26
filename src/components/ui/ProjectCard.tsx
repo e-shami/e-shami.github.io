@@ -6,15 +6,29 @@ import {Project} from '@/src/lib/types';
 import React from 'react';
 import {useTailwindColorScheme} from "@/src/hooks";
 import {useColorScheme} from "@mui/material";
+import {isAndroid, isIOS} from "react-device-detect";
+import Image from 'next/image';
+import AndroidIcon from '@/public/svgs/android.svg'
+import AppleIcon from '@/public/svgs/apple.svg'
 
 interface ProjectCardProps {
     project: Project;
     headerColor: string;
 }
  const ProjectCard: React.FC<ProjectCardProps> = ({project, headerColor}) => {
+
     const scheme = useTailwindColorScheme();
     const {mode} = useColorScheme();
     const isLight = mode === 'light';
+    const isExternalLinkCombined = project?.externalLink && !isIOS && !isAndroid;
+
+    let androidLink, iosLink;
+    if (isExternalLinkCombined) {
+        const split = project.link?.split('<=>');
+        androidLink = split?.[0];
+        iosLink = split?.[1];
+    }
+
     return (
         <motion.div whileHover={{y: -5}} className="h-full">
             <div
@@ -53,7 +67,35 @@ interface ProjectCardProps {
                     ))}
                 </div>
 
-                {project.link && (
+                {isExternalLinkCombined ? (
+                        <div className={'flex justify-center gap-6'}>
+                            <motion.a
+                                href={`https://${androidLink}`}
+                                target={`_blank`}
+                                rel={`noopener noreferrer`}
+                                whileHover={{scale: 1.02}}
+                                whileTap={{scale: 0.98}}
+                                className={`w-fit px-3 py-1.5 bg-gradient-to-r ${scheme.buttonColor} from text-white rounded-lg font-semibold flex items-center justify-center gap-2 hover:shadow-lg transition-shadow`}
+                            >
+                                <Image src={AndroidIcon} alt={'Android Icon'} width={40} height={40}/>
+                            </motion.a>
+
+                            <motion.a
+                                href={`https://${iosLink}`}
+                                target={`_blank`}
+                                rel={`noopener noreferrer`}
+                                whileHover={{scale: 1.02}}
+                                whileTap={{scale: 0.98}}
+                                className={`w-fit px-3 py-1.5 bg-gradient-to-r ${scheme.buttonColor} from text-white rounded-lg font-semibold flex items-center justify-center gap-2 hover:shadow-lg transition-shadow`}
+                                >
+                                <Image src={AppleIcon} alt={'Apple Icon'} width={40} height={40}/>
+                            </motion.a>
+                        </div>
+                )
+                :
+                    (
+
+                project.link && (
                     <motion.a
                         href={`https://${project.link}`}
                         target="_blank"
@@ -65,7 +107,8 @@ interface ProjectCardProps {
                         View Project
                         <ExternalLink size={18}/>
                     </motion.a>
-                )}
+                )
+                    )}
             </div>
         </motion.div>
     );

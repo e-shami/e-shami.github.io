@@ -23,6 +23,7 @@ export interface Project {
     description: string;
     tech: string[];
     link?: string;
+    externalLink?: boolean;
 }
 
 export interface SkillCategory {

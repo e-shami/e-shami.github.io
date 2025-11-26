@@ -1,6 +1,7 @@
 import {Experience, Project, SkillCategory, ContactInfo, NavItem} from './types';
 import {Smartphone, Server, Globe, Database, Zap, Terminal, Code, Briefcase, GraduationCap, GitFork} from 'lucide-react';
 import React from 'react';
+import {isAndroid, isIOS} from "react-device-detect";
 
 const CodeIcon = React.createElement(Code, {size: 20});
 const GitForkIcon = React.createElement(GitFork, {size: 20});
@@ -73,7 +74,8 @@ export const PROJECTS: Project[] = [
         badge: 'SageTeck',
         description: "Developed a cross-platform mobile app for golf enthusiasts using React Native and Expo. Designed for learners and instructors, the app enables booking and managing online or in-person lessons, with support for paid packages. Implemented features like live video annotation, in-app chat, social posting with likes and comments, and slot booking for individuals or groups.",
         tech: ['React', 'React Native', 'Expo', 'EAS', 'Push Notifications', 'Video Player', 'Screen Recording', 'File Sharing', 'Gallery Access', 'Camera Access', 'Zustand', 'React-Native-MMKV', 'WebSockets'],
-        link: 'rb.gy/qilbr4',
+        link: isAndroid ? 'play.google.com/store/apps/details?id=com.moeed101.TuneUp&hl=en' : isIOS ? 'apps.apple.com/id/app/tuneup-golf/id6505066475' : "play.google.com/store/apps/details?id=com.moeed101.TuneUp&hl=en<=>apps.apple.com/id/app/tuneup-golf/id6505066475",
+        externalLink: true
     },
     {
         title: "Vendor-verse",
